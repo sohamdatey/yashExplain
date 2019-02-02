@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Soham's project!
+  </h1>
+  
+</div>
+
+
+{{person.id}}
+{{person.userId}}
+
+
+
+  <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio" (click)="automaticTableSelected()">automatic
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio" (click)="manualTableSelected()">manual
+      </label>
+    </div>
+  
+
+<app-sampletable *ngIf="isAutomaticTableSelected" [person]="person"></app-sampletable>
+<app-manual-table *ngIf="!isAutomaticTableSelected" [person]="person"></app-manual-table>
+
+<router-outlet></router-outlet>
