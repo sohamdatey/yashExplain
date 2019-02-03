@@ -11,6 +11,7 @@
       <tr>
           <td><input type="text" [(ngModel)]="person.userId"/></td>
           <td><input type="text" [(ngModel)]="person.id" (input)="ManualCalculations()"/></td>
+          <td>{{ (person.id)*2}}</td>
         </tr>
     
   </tbody>
