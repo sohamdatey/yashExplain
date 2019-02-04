@@ -1,0 +1,27 @@
+
+{{person.userId}}
+<br>
+{{person.id}}
+
+
+<div class="form-group">
+    <input type="tel"  #dollar="ngModel" required name="dollar" pattern="^(\d+\.)?\d{1,2}$" [class.is-invalid]="dollar.invalid && dollar.touched" [(ngModel)]="dollars" (input)="validateDollars($event)"/>
+    <small class="text-danger" [class.d-none]="dollar.valid || dollar.untouched">Name is required</small>
+  </div>
+<button type="submit" [disabled]="dollar.errors?.pattern || dollar.errors?.required"> submit</button>
+
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" (click)="automaticTableSelected()">automatic
+  </label>
+</div>
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" (click)="manualTableSelected()">manual
+  </label>
+</div>
+
+
+<app-automatic-table *ngIf="isAutomaticTableSelected" [person]="person"></app-automatic-table>
+<app-manual-table *ngIf="!isAutomaticTableSelected" [person]="person"></app-manual-table>
